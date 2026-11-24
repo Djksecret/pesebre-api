@@ -1,0 +1,7 @@
+export enum Rol {
+  ENCARGADO_PESEBRE = 'ENCARGADO_PESEBRE',
+  ELFO = 'ELFO',
+  AYUDANTE = 'AYUDANTE',
+  PASTOR = 'PASTOR',
+  PAJE = 'PAJE',
+}

@@ -1,0 +1,20 @@
+export enum Categoria {
+  PAJA = 'PAJA',
+  MANTA = 'MANTA',
+  AGUA = 'AGUA',
+  ALIMENTO_ANIMALES = 'ALIMENTO_ANIMALES',
+  LAMPARA_ACEITE = 'LAMPARA_ACEITE',
+}
+
+export enum EstadoRecurso {
+  DISPONIBLE = 'DISPONIBLE',
+  BAJO_STOCK = 'BAJO_STOCK',
+  AGOTADO = 'AGOTADO',
+  REABASTECIMIENTO_PENDIENTE = 'REABASTECIMIENTO_PENDIENTE',
+}
+
+export enum Especie {
+  BUEY = 'BUEY',
+  MULA = 'MULA',
+  OVEJA = 'OVEJA',
+}

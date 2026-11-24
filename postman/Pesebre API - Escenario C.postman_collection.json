@@ -1,0 +1,512 @@
+{
+  "info": {
+    "_postman_id": "291e7888-8490-4822-a806-c4329f599e5b",
+    "name": "Pesebre API - Escenario C",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "59075025",
+    "_collection_link": "https://go.postman.co/collection/59075025-291e7888-8490-4822-a806-c4329f599e5b?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Crear Paja",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{tokenEncargado}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"nombre\":\"Paja\",\"categoria\":\"PAJA\",\"cantidad\":10,\"stockMinimo\":3}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/recursos",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "recursos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Crear Heno",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{tokenEncargado}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"nombre\":\"Heno\",\"categoria\":\"ALIMENTO_ANIMALES\",\"cantidad\":20,\"stockMinimo\":5}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/recursos",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "recursos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Crear Lámpara",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{tokenEncargado}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"nombre\":\"Lámpara\",\"categoria\":\"LAMPARA_ACEITE\",\"cantidad\":5,\"stockMinimo\":2}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/recursos",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "recursos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Listar recursos",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/recursos",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "recursos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Detalle recurso",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/recursos/1",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "recursos",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Entrada inválida",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{tokenEncargado}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"nombre\":\"A\",\"categoria\":\"XYZ\",\"cantidad\":-1,\"stockMinimo\":0}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/recursos",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "recursos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Recurso inexistente",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/recursos/999",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "recursos",
+            "999"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Sin token",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"nombre\":\"Paja2\",\"categoria\":\"PAJA\",\"cantidad\":10,\"stockMinimo\":3}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/recursos",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "recursos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Rol insuficiente",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{tokenPastor}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"nombre\":\"Paja3\",\"categoria\":\"PAJA\",\"cantidad\":10,\"stockMinimo\":3}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/recursos",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "recursos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Consumo excesivo",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{tokenEncargado}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"cantidad\":500}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/recursos/1/consumo",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "recursos",
+            "1",
+            "consumo"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Eliminar con stock",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{tokenEncargado}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/recursos/1",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "recursos",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Crear animal",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"nombre\":\"Bruno\",\"especie\":\"BUEY\",\"racionDiaria\":4}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/animales",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "animales"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Alimentar animal",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Alimentar otra vez",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Reabastecer OK",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{tokenEncargado}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"cantidad\":20}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/recursos/1/reabastecimiento",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "recursos",
+            "1",
+            "reabastecimiento"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Sin existencias",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{tokenEncargado}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"cantidad\":10}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/recursos/3/reabastecimiento",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "recursos",
+            "3",
+            "reabastecimiento"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "SOAP caído (Fault)",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{tokenEncargado}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"cantidad\":999}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/recursos/1/reabastecimiento",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "recursos",
+            "1",
+            "reabastecimiento"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": ""
+    },
+    {
+      "key": "tokenEncargado",
+      "secret": true
+    },
+    {
+      "key": "tokenPastor",
+      "value": ""
+    }
+  ]
+}
